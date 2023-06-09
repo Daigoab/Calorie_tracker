@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <div class="container">
+        {% for foodie in foodies %}
+        <h4>Day:  {{ foodie.title }}</h4>
+        <p>User:  {{ foodie.author }}</p>
+        <p>Meal:  {{ foodie.food }}</p>
+        <p>Date created: {{ foodie.created_date }}</p>
+        <p>Date published: {{ foodie.published_date }}</p>
+        {% endfor %}
+    </div>
+{%endblock%}

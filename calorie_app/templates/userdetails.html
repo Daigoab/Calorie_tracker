@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %} 
+{% for userdetails in userdetails %}
+<div class="container">
+    <h1>{{ userdetails.title }}</h1>
+    <p>Me:  {{ userdetails.user }}</p>
+    <p>My Height: {{ userdetails.height }} cm</p>
+    <p>My Weight: {{ userdetails.weight }} kg</p>
+    <h1>{{ tracker.total_calories }}</h1>
+</div>
+{% endfor %}
+{%endblock%}
+
+

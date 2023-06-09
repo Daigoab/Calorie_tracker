@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <div class="container">
+        {% for food in foods %}
+        <h3>Food: {{ food.name }}</h3>
+        <p>Carbohydrates: {{ food.carbohydrate }}g</p>
+        <p>Protein: {{ food.protein }}g</p>
+        <p>Fats: {{ food.fats }}g</p>
+        <p>Salt: {{ food.salt }}mg</p>
+        <p>Sugar: {{ food.sugar }}mg</p>
+        <p>Total calory intake for food: {{ food.total_calory }}kcal</p>
+{% endfor %}
+    </div>
+{%endblock%}

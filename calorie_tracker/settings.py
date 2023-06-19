@@ -12,10 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config,Csv
+import dj_database_url
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'calorie_app',
     'mathfilters',
-    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -83,24 +81,20 @@ WSGI_APPLICATION = 'calorie_tracker.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASS'),
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASS'),
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default' : dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
-cloudinary.config (
-    cloud_name = config('CD_NAME')
-    api_key = config('CD_API')
-    api_secret = config('CD_SECRET')
-    secure = config('CD_SECURE')
-    )
-
 
 
 # Password validation
